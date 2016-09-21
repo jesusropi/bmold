@@ -1,0 +1,94 @@
+{% extends "BM/base.html" %}
+{% load i18n %}
+{% block title %} Basket Manager - Index {% endblock %}
+
+{%block header %}
+
+{% endblock%}
+
+{%block content %}
+	<!-- Contenido Home -->
+	<div class="public-profile">
+		<table class="table table-striped personal-data">
+			<tr>
+				<td class="avatar-index">
+					<img src="/static/BM/img/gasol.jpg" alt=""/>
+				</td>
+				<td>
+					<table class="table table-striped table-bordered">
+						<tr>
+							<td class="etiqueta">{%trans "Name" %}</td><td class="valor">Pau Gasol</td>
+						</tr>
+						<tr>
+							<td>{%trans "Alias" %}</td><td>Pau Gasol</td>
+						</tr>
+						<tr>
+							<td>{%trans "Teams" %}</td><td>Pau Gasol</td>
+						</tr>
+						<tr>
+							<td>{%trans "Private Leages" %}</td><td>Pau Gasol</td>
+						</tr>
+						<tr>
+							<td>{%trans "Challenges" %}</td><td>Pau Gasol</td>
+						</tr>
+						<tr>
+							<td>{%trans "Awards" %}</td><td>Pau Gasol</td>
+						</tr>
+					</table>
+				</td>
+				
+			</tr>
+		</table>
+	</div>
+	
+	<div class="medallero">
+		<center>
+			<div class="btn-group">
+				<a class="btn btn-default" href="/">{%trans "Trophy MVP" %}</a>
+				<a class="btn btn-default" href="/">{%trans "Subcampeon League" %}</a>
+				<a class="btn btn-default" href="/">{%trans "Position 4th tournament" %}</a></li>	
+				<a class="btn btn-default" href="/">{%trans "Play_off Champion" %}</a>
+				<a class="btn btn-default" href="/">{%trans "5 Challenges Won" %}</a>
+			</div>
+		</center>
+	</div>
+	
+	<hr class="divisor40"/>
+		
+	<!-- Sub-seccion 1 -->
+	<div class="sub_section_1">
+		<div class="row featurette">
+			<div class="col-md-7">
+				<h2 class="featurette-heading">Personal data of player <span class="text-muted">Pau Gasol</span></h2>
+				<p class="lead">
+					<table class="table">
+						<tr>
+							<td class="etiqueta">{%trans "First Name" %}</td><td class="valor">Pau</td>
+						</tr>
+						<tr>
+							<td>{%trans "Last Name" %}</td><td>Gasol</td>
+						</tr>
+						<tr>
+							<td>{%trans "Alias" %}</td><td>PauGasol</td>
+						</tr>
+						<tr>
+							<td>{%trans "Registration Date" %}</td><td>1/12/2013</td>
+						</tr>
+						<tr>
+							<td>{%trans "Last Access" %}</td><td>11/12/2013</td>
+						</tr>
+						<tr>
+							<td>{%trans "Points" %}</td><td>15.685</td>
+						</tr>
+						<tr>
+							<td>{%trans "Money" %}</td><td>782.350</td>
+						</tr>
+					</table>
+				</p>
+			</div>
+			<div class="col-md-5">
+				<img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image" src="/static/BM/img/recuadro-grande.png">
+			</div>
+		</div>
+	</div>
+{% endblock%}

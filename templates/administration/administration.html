@@ -1,0 +1,239 @@
+{% extends "BM/base.html" %}
+{% load i18n %}
+{% block title %} Basket Manager - Index {% endblock %}
+
+{% block extrascripts %}
+	<script type="text/javascript">
+	/*Estadisticas*/
+		function enviarformulario(value){
+			if(value=="Actualizar jornada"){
+				//alert('hola');
+				jornada = document.getElementById('action');
+				jornada.value = "jornada";
+				document.forms[0].submit();
+			}
+			if(value=="Actualizar grupo"){
+				//alert('adios');
+				grupo = document.getElementById('action');
+				grupo.value = "grupo";
+				document.forms[0].submit();
+			}
+
+			
+		}
+	</script>
+	
+	<script type="text/javascript">
+	/*Ligas*/
+	function enviarformulario(value){
+		if(value=="Actualizar equipos"){
+			//alert('hola');
+			jornada = document.getElementById('action');
+			jornada.value = "equipo";
+			document.forms[0].submit();
+		}
+		if(value=="Actualizar partidos"){
+			//alert('hola');
+			jornada = document.getElementById('action');
+			jornada.value = "partidos";
+			document.forms[0].submit();
+		}
+		if(value=="Actualizar partido"){
+			//alert('hola');
+			jornada = document.getElementById('action');
+			jornada.value = "partido";
+			document.forms[0].submit();
+		}
+		if(value=="Actualizar jornadas"){
+			//alert('hola');
+			jornada = document.getElementById('action');
+			jornada.value = "jornada";
+			document.forms[0].submit();
+		}
+		if(value=="Actualizar grupos"){
+			//alert('adios');
+			grupo = document.getElementById('action');
+			grupo.value = "grupo";
+			document.forms[0].submit();
+		}
+		if(value=="Actualizar fases"){
+			//alert('adios');
+			fase = document.getElementById('action');
+			fase.value = "fase";
+			document.forms[0].submit();
+		}
+		if(value=="Actualizar categorias"){
+			//alert('adios');
+			categoria = document.getElementById('action');
+			categoria.value = "categoria";
+			document.forms[0].submit();
+		}
+		if(value=="Actualizar temporadas"){
+			//alert('adios');
+			temporada = document.getElementById('action');
+			temporada.value = "temporada";
+			document.forms[0].submit();
+		}
+		if(value=="Actualizar jugador"){
+			//alert('adios');
+			temporada = document.getElementById('action');
+			temporada.value = "jugador";
+			document.forms[0].submit();
+		}
+		
+	}
+</script>
+{% endblock %}
+
+{%block header %}
+
+{% endblock%}
+
+{% block content %}
+	<br/>
+	<br/>
+	<div class="sub_section_1 admin">
+		<div class="tabbable">
+			<!-- Team List -->
+			<ul class="nav nav-tabs">
+			  <li class="active"><a href="#1" data-toggle="tab">{%trans "Statistics " %}</a></li>
+			  <li><a href="#2" data-toggle="tab">{%trans "Leages " %}</a></li>
+			  <li><a href="#3" data-toggle="tab">{%trans "Users" %}</a></li>
+			</ul>
+			
+			<!-- Team Info List -->
+			<div class="tab-content">
+				<div class="tab-pane active" id="1">
+					<h2>{%trans "Statistics " %}<span class="text-muted">{%trans "administration:" %}</span></h2>
+					<br/>
+					<form method="GET" id="form1" action="{% url 'ac_estat' %}">
+						<br/>
+						<select class='span5' name="temporada" size="1" onchange="Dajaxice.GC.categoria(Dajax.process, {'option':this.value})">
+							<option value="0">{%trans "Select Season:" %}</option>
+							{% for season in season_list %}
+								<option id='temporada' value={{ season.id }}>{{ season.feb_season_name }}</option>
+							{% endfor %}
+						</select>
+						<br/>
+						<br/>
+						<select class='span5' name="categoria" id="combo2" onchange="Dajaxice.GC.fase(Dajax.process, {'option':this.value})" size="1">
+							<option value="0">{%trans "Select Category:" %}</option>
+						</select>
+						<br/>
+						<br/>
+						<select class='span5' name="fase" id="combo3" onchange="Dajaxice.GC.grupo(Dajax.process, {'option':this.value})" size=1>
+							<option value="0">{%trans "Select Phase:" %}</option>
+						</select>
+						<br/>
+						<br/>
+						<select class='span5' name="grupo" id="combo4" onchange="Dajaxice.GC.jornada(Dajax.process, {'option':this.value})" size=1>
+							<option value="0">{%trans "Select Group:" %}</option>
+						</select>
+						<br/>
+						<br/>
+						<select class='span5' name="jornada" id="combo5" size=1 onchange="Dajaxice.GC.partido(Dajax.process, {'option':this.value})">
+							<option value="0">{%trans "Select Fixture:" %}</option>
+						</select>
+						<br/>
+						<br/>
+						<input name='action' id='action' type='hidden'>
+						
+						<input class='span2 btn btn-primary btn-sm' type="submit" value="Actualizar jornada" onclick="enviarformulario(this.value)">
+						<br/>
+						<br/>
+						<input class='span2 btn btn-primary btn-sm' type="submit" value="Actualizar grupo" onclick="enviarformulario(this.value)">
+					</form>
+					<br/>
+					<br/>
+					<button class="span2 btn btn-primary btn-sm" href="{% url 'administrar_o' %}">{%trans "Leages" %}</button>
+				
+				</div>
+				<div class="tab-pane" id="2">
+					
+					<h2>{%trans "Leages " %}<span class="text-muted">{%trans "administration:" %}</span></h2>
+					<br/>
+					<form method="GET" id="form1" action="obje/">
+						
+						<input class='span2 btn btn-primary btn-sm' type="submit" value="Actualizar temporadas" onclick="enviarformulario(this.value)">
+						<br/>
+						<br/>
+
+						<select class='span5' name="temporada" onchange="Dajaxice.GC.categoria(Dajax.process, {'option':this.value})" size="1">
+							<option value="0">{%trans "Select Season:" %}</option>
+							{% for season in season_list %}
+								<option id='temporada' value={{ season.id }}>{{ season.feb_season_name }}</option>
+							{% endfor %}
+						</select>
+						
+						<input class='span2 btn btn-primary btn-sm' type="submit" value="Actualizar categorias" onclick="enviarformulario(this.value)">
+						
+						<br/>
+						<br/>
+						<select class='span5' name="categoria" onchange="Dajaxice.GC.fase(Dajax.process, {'option':this.value});Dajaxice.GC.equipo(Dajax.process, {'option':this.value})" id="combo2" size="1">
+							<option value="0">{%trans "Select Category:" %}</option>
+						</select>
+						
+						<input class='span2 btn btn-primary btn-sm' type="submit" value="Actualizar fases" onclick="enviarformulario(this.value)">
+						
+						<input class='span2 btn btn-primary btn-sm' type="submit" value="Actualizar equipos" onclick="enviarformulario(this.value)">
+						
+						<br/>
+						<br/>
+						<select class='span5' name="equipo" id="combo8" onchange="Dajaxice.GC.jugador(Dajax.process, {'option':this.value})" size="1">
+							<option value="0">{%trans "Select Team:" %}</option>
+						</select>
+						
+						<br/>
+						<br/>
+						<select class='span5' name="jugador" id="combo9" size=1>
+							<option value="0">{%trans "Select Player:" %}</option>
+						</select>
+						
+						<input class='span2 btn btn-primary btn-sm' type="submit" value="Actualizar jugador" onclick="enviarformulario(this.value)">
+						
+						<br/>
+						<br/>
+						<select class='span5' name="fase" id="combo3" onchange="Dajaxice.GC.grupo(Dajax.process, {'option':this.value})" size=1>
+							<option value="0">{%trans "Select Phase:" %}</option>
+						</select>
+						
+						<input class='span2 btn btn-primary btn-sm' type="submit" value="Actualizar grupos" onclick="enviarformulario(this.value)">
+						
+						<br/>
+						<br/>
+						<select class='span5' name="grupo" id="combo4" onchange="Dajaxice.GC.jornada(Dajax.process, {'option':this.value})" size=1>
+							<option value="0">{%trans "Select Group:" %}</option>
+						</select>
+						
+						<input class='span2 btn btn-primary btn-sm' type="submit" value="Actualizar jornadas" onclick="enviarformulario(this.value)">
+						
+						<br/>
+						<br/>
+						<select class='span5' name="jornada" id="combo5" onchange="Dajaxice.GC.partidos(Dajax.process, {'option':this.value})" size=1>
+							<option value="0">{%trans "Select Fixture:" %}</option>
+						</select>
+						
+						<input class='span2 btn btn-primary btn-sm' type="submit" value="Actualizar partidos" onclick="enviarformulario(this.value)">
+						
+						<br/>
+						<br/>
+						<select class='span5' name="partido" id="combo6" size=1>
+							<option value="0">{%trans "Select Macth:" %}</option>
+						</select>
+						<br/>
+						<br/>
+						<input class='span2 btn btn-primary btn-sm' type="submit" value="{%trans 'Update Macth:' %}" onclick="enviarformulario(this.value)">
+						<input name='action' id='action' type='hidden'>
+					</form>
+					<br/>
+					<br/>
+					<button class="span2 btn btn-primary btn-sm" href="{% url 'administrar_e' %}">{%trans "Statistics" %}</button>
+				
+				</div>
+				<div class="tab-pane" id="3">
+				
+				</div>
+			</div>
+		</div> <!-- /tabbable -->	
+	</div>	
+{% endblock %}

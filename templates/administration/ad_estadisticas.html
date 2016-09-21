@@ -1,0 +1,67 @@
+{% extends "BM/base.html" %}
+
+{% block extrascripts %}
+	<script type="text/javascript">
+		function enviarformulario(value){
+			if(value=="Actualizar jornada"){
+				//alert('hola');
+				jornada = document.getElementById('action');
+				jornada.value = "jornada";
+				document.forms[0].submit();
+			}
+			if(value=="Actualizar grupo"){
+				//alert('adios');
+				grupo = document.getElementById('action');
+				grupo.value = "grupo";
+				document.forms[0].submit();
+			}
+
+			
+		}
+	</script>
+{% endblock %}
+
+{% block content %}
+	<br/>
+	<br/>
+	<div class="sub_section_1">
+		<h2>{%trans "Statistics" %}<span class="text-muted">{%trans "administration:" %}</span></h2>
+		<form method="GET" id="form1" action="{% url 'ac_estat' %}">
+			<br/>
+			<select name="temporada" size="1" onchange="Dajaxice.GC.categoria(Dajax.process, {'option':this.value})">
+				<option value="0">Selecciona temporada</option>
+				{% for season in season_list %}
+					<option id='temporada' value={{ season.id }}>{{ season.feb_season_name }}</option>
+				{% endfor %}
+			</select>
+			<br/>
+			<br/>
+			<select name="categoria" id="combo2" onchange="Dajaxice.GC.fase(Dajax.process, {'option':this.value})" size="1"><option value="0">Select...</option>
+			</select>
+			<br/>
+			<br/>
+			<select name="fase" id="combo3" onchange="Dajaxice.GC.grupo(Dajax.process, {'option':this.value})" size=1><option value="0">Select...</option>
+			</select>
+			<br/>
+			<br/>
+			<select name="grupo" id="combo4" onchange="Dajaxice.GC.jornada(Dajax.process, {'option':this.value})" size=1><option value="0">Select...</option>
+			</select>
+			<br/>
+			<br/>
+			<select name="jornada" id="combo5" size=1 onchange="Dajaxice.GC.partido(Dajax.process, {'option':this.value})"><option value="0">Select...</option>
+			</select>
+			<br/>
+			<br/>
+			<input name='action' id='action' type='hidden'>
+			
+			<input type="submit" value="Actualizar jornada" onclick="enviarformulario(this.value)">
+			<br/>
+			<br/>
+			<input type="submit" value="Actualizar grupo" onclick="enviarformulario(this.value)">
+		</form>
+		<br/>
+			<br/>
+		<a class="btn btn-primary" href="{% url 'administrar_o' %}">Objetos</a>
+	</div>
+
+{% endblock %}

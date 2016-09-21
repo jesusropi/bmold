@@ -1,0 +1,261 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/*añadido por Jose*/
+
+html, body, header, footer{
+	#border:solid 1px silver;
+}
+
+html{
+	
+}
+body{
+
+}
+/*estilos compartidos*/
+.header_section, .container_section, .footer_section{
+	margin: 20px;
+}
+
+.container{
+	margin:auto;
+}
+/*-----------------------------------Header-----------------------------------*/
+
+/*contenedor cabecera*/
+.header_section{
+	width: 100%;
+	padding:0px;
+}
+/*contenedor logo y menu*/
+.container_header{
+	margin-top: 30px;
+	background-color:#EAEAEA;
+	border-radius: 5px;
+}
+	/*-----------------------------home.html---------------------------*/
+	
+	/*logo*/
+	.logo{
+		float:left;
+		padding-top:5px;
+	}
+
+	/*menu*/
+	.menu{
+		padding-top:5px;
+	}
+
+	/*menu que contiene lista de elementos*/
+	.menu_home{
+		margin-top:3px;
+		margin-left:150px;
+	}
+	.menu_home ul{
+		margin:0px;
+	}
+	.menu_home ul li{
+		display: inline;
+	}
+	.menu_home ul li a{
+		text-decoration: none;
+	}
+	
+
+/*-----------------------------------Slider-----------------------------------*/	
+
+	/*slider*/
+	.carousel {
+		position: relative;
+			bottom:80px;
+		background-color:#555555;
+		margin-bottom: 60px;
+	}
+
+/*-----------------------------------Cuerpo-----------------------------------*/
+
+/*contenedor cuerpo*/
+.container_section{
+	
+}
+
+/*contenedor contenido*/
+.content_page{
+
+}
+
+/*divisor*/
+	.divisor80{
+		clear: both;
+		margin: 80px
+	}
+	.divisor40{
+		clear: both;
+		margin: 40px
+	}
+	.divisor20{
+		clear: both;
+		margin: 20px
+	}
+	
+	/*-----------------------------home.html---------------------------*/
+	
+	/*introduccion*/
+	.intro{
+		height:380px;
+	}
+	.intro .thumbnail{
+		float:left;
+		text-align:center;
+		text-align:middle;
+	}
+	.intro .thumbnail img{
+		border-radius:50%;
+	}
+	
+	
+	/*alinear texto verticalment en subsecciones*/
+	.col-md-7{
+		#margin-top:120px;
+	}
+	
+	/*seccion 1*/
+	.sub_section_1{
+		
+	}
+	
+	/*seccion 2*/
+	.sub_section_2{
+	
+	}
+	
+	/*-----------------------------user_perfil.html---------------------------*/
+	
+	/*tamaño y posicion de tabla de datos personales*/
+	.personal-data{
+		width:80%;
+		margin:auto;
+		margin-top:40px;
+		margin-bottom:40px;
+	}
+	.personal-data table{
+		width:90%;
+		margin:0px 40px;
+	}
+	
+	/*definir tamaño avatar*/
+	.avatar-index {
+		width:10%;
+	}
+	.avatar-index img{
+		max-height:225px;
+	}
+	
+	/*proporcion de las columnas de las tablas con los datos del usuario*/
+	.etiqueta{
+		width:40%;
+	}
+	.valor{
+		width:60%;
+	}
+	
+	/*medallero*/
+	.medallero{
+
+	}
+	/*-----------------------------clasifications.html---------------------------*/
+	
+	/*quitar borde inferior a las tablas*/
+	.table-in-line{
+		margin-bottom: 0px !important;
+	}
+	/*posicionar botones*/
+	.clasifications button{
+		position:relative;
+			top:6px;
+			left:6px;
+	}
+	
+	/*-------------------------------market.html---------------------------------*/
+	
+	/*posicionar input búsqueda y botón buscar*/
+	.busqueda{
+	
+	}
+	
+	.busqueda input{
+		position:relative;
+			bottom:4px;
+			margin-right:10px;
+	}
+	.busqueda button{
+		position:relative;
+			bottom:8px;
+	}
+	
+	.lesionados{
+	
+	}
+	.lesionados{
+		padding:0px;
+	}
+	.lesionados table{
+		margin:0px;
+		padding:0px;
+	}
+	
+	/*----------------------------create_team.html---------------------------------*/
+	/*posicionar boton crear equipo*/
+	.form_create_team button{
+		margin-left:15px;
+		position:relative;
+			bottom:5px;
+	}
+	
+	.filter_player{
+		margin:30px;
+	}
+	
+	.create_team button{
+		margin-bottom:10px;
+		margin-right:0px;
+	}
+	.glyphicon-remove{
+		color:red;
+		margin-bottom:10px;
+		position:relative;
+			top:9px;
+			right:4px;
+	}
+	
+	/*----------------------------create_team.html---------------------------------*/
+	/*posicionar logo detalle equipo*/
+	.logo_team{
+		float:left;
+	}
+	/*igualar alto de cada fila*/
+	.marcador_equipo tr{
+		height:50px;
+	}
+	/*centrar texto verticalmente dentro del marcador superior*/
+	.marcador_equipo h4, .marcador_equipo h5{
+		line-height:25px;
+	}
+	
+	/*------------------------------admin.html-------------------------------------*/
+	/*posicionar botones alineados con dropdown list*/
+	.admin .btn{
+		margin-left:15px;
+		position:relative;
+			bottom: 5px;
+	}
+/*-----------------------------------Footer-----------------------------------*/
+
+/*contenedor footer*/
+.footer_section{
+
+}

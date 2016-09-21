@@ -1,0 +1,379 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-14 17:36+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\BM\settings.py:65
+msgid "English"
+msgstr "Inglés"
+
+#: .\BM\settings.py:66
+msgid "Espanol"
+msgstr "Español"
+
+#: .\GC\models.py:19 .\GC\models.py:40 .\GC\models.py:58 .\GC\models.py:76
+#: .\GC\models.py:97 .\GC\models.py:119 .\GC\models.py:164 .\GC\models.py:186
+#: .\GC\models.py:281
+msgid "name"
+msgstr "nombre"
+
+#: .\GC\models.py:20 .\GC\models.py:98 .\GC\models.py:141 .\GC\models.py:165
+#: .\GC\models.py:187 .\GC\models.py:205 .\GC\models.py:224 .\GC\models.py:307
+msgid "feb id"
+msgstr "feb_id"
+
+#: .\GC\models.py:21 .\GC\models.py:99 .\GC\models.py:120 .\GC\models.py:166
+#: .\GC\models.py:188
+msgid "feb name"
+msgstr "feb nombre"
+
+#: .\GC\models.py:22 .\GC\models.py:331 .\GC\models.py:359
+msgid "start date"
+msgstr "fecha inicio"
+
+#: .\GC\models.py:23 .\GC\models.py:332 .\GC\models.py:360
+msgid "end date"
+msgstr "fecha fin"
+
+#: .\GC\models.py:26 .\GC\models.py:140
+msgid "season"
+msgstr "temporada"
+
+#: .\GC\models.py:27 .\GC\models.py:102
+msgid "seasons"
+msgstr "temporadas"
+
+#: .\GC\models.py:41 .\GC\models.py:59 .\GC\models.py:77 .\GC\models.py:381
+#: .\GC\models.py:382
+msgid "description"
+msgstr "descripción"
+
+#: .\GC\models.py:44 .\GC\models.py:100 .\GC\models.py:285
+msgid "genre"
+msgstr "género"
+
+#: .\GC\models.py:45
+msgid "genres"
+msgstr "géneros"
+
+#: .\GC\models.py:62 .\GC\models.py:101
+msgid "modality"
+msgstr "modalidad"
+
+#: .\GC\models.py:63
+msgid "modalities"
+msgstr "modalidades"
+
+#: .\GC\models.py:80
+msgid "scope"
+msgstr "ámbito"
+
+#: .\GC\models.py:81
+msgid "scopes"
+msgstr "ámbitos"
+
+#: .\GC\models.py:106 .\GC\models.py:168
+msgid "category"
+msgstr "categoría"
+
+#: .\GC\models.py:107
+msgid "categories"
+msgstr "categorías"
+
+#: .\GC\models.py:121 .\GC\models.py:167
+msgid "feb alias"
+msgstr "feb alias"
+
+#: .\GC\models.py:122
+msgid "registrations"
+msgstr "inscripciones"
+
+#: .\GC\models.py:125 .\GC\models.py:139 .\GC\models.py:252 .\GC\models.py:358
+#: .\GC\models.py:400
+msgid "team"
+msgstr "equipo"
+
+#: .\GC\models.py:126 .\GC\models.py:310
+msgid "teams"
+msgstr "equipos"
+
+#: .\GC\models.py:145
+msgid "team registration"
+msgstr "equipo inscripción"
+
+#: .\GC\models.py:146
+msgid "teams registration"
+msgstr "equipos inscripción"
+
+#: .\GC\models.py:171 .\GC\models.py:189
+msgid "phase"
+msgstr "fase"
+
+#: .\GC\models.py:172
+msgid "phases"
+msgstr "fases"
+
+#: .\GC\models.py:192 .\GC\models.py:208
+msgid "group"
+msgstr "grupo"
+
+#: .\GC\models.py:193
+msgid "groups"
+msgstr "grupos"
+
+#: .\GC\models.py:206 .\GC\models.py:227
+msgid "date"
+msgstr "fecha"
+
+#: .\GC\models.py:207
+msgid "number"
+msgstr "número"
+
+#: .\GC\models.py:211
+msgid "fixture"
+msgstr "jornada"
+
+#: .\GC\models.py:212
+msgid "fixtures"
+msgstr "jornadas"
+
+#: .\GC\models.py:225
+msgid "local team"
+msgstr "equipo local"
+
+#: .\GC\models.py:226
+msgid "visitor team"
+msgstr "equipo visitante"
+
+#: .\GC\models.py:228
+msgid "main refree"
+msgstr "áribtro principal"
+
+#: .\GC\models.py:229
+msgid "auxiliar refree"
+msgstr "árbitro auxiliar"
+
+#: .\GC\models.py:230
+msgid "place"
+msgstr "lugar"
+
+#: .\GC\models.py:236 .\GC\models.py:253 .\GC\models.py:399
+msgid "match"
+msgstr "partido"
+
+#: .\GC\models.py:237
+msgid "matches"
+msgstr "partidos"
+
+#: .\GC\models.py:254
+msgid "score"
+msgstr "puntuación"
+
+#: .\GC\models.py:255
+msgid "partial scores"
+msgstr "puntuaciones parciales"
+
+#: .\GC\models.py:256
+msgid "first partial"
+msgstr "primer parcial"
+
+#: .\GC\models.py:257
+msgid "second partial"
+msgstr "segundo parcial"
+
+#: .\GC\models.py:258
+msgid "third partial"
+msgstr "tercer parcial"
+
+#: .\GC\models.py:259
+msgid "four partial"
+msgstr "cuarto parcial"
+
+#: .\GC\models.py:260
+msgid "extended time"
+msgstr "prórroga"
+
+#: .\GC\models.py:261
+msgid "number extended times"
+msgstr "número de prórrogas"
+
+#: .\GC\models.py:264 .\GC\models.py:265 .\GC\models.py:424 .\GC\models.py:425
+msgid "match stats"
+msgstr "estadísticas partido"
+
+#: .\GC\models.py:282
+msgid "surname 1"
+msgstr "apellido 1"
+
+#: .\GC\models.py:283
+msgid "surname 2"
+msgstr "apellido 2"
+
+#: .\GC\models.py:284
+msgid "born date"
+msgstr "fecha de nacimiento"
+
+#: .\GC\models.py:286
+msgid "photo"
+msgstr "foto"
+
+#: .\GC\models.py:287 .\GC\models.py:288
+msgid "height"
+msgstr "altura"
+
+#: .\GC\models.py:291
+msgid "person"
+msgstr "persona"
+
+#: .\GC\models.py:292
+msgid "persons"
+msgstr "personas"
+
+#: .\GC\models.py:308
+msgid "dorsal"
+msgstr "dorsal"
+
+#: .\GC\models.py:309
+msgid "active"
+msgstr "activo"
+
+#: .\GC\models.py:313 .\GC\models.py:330 .\GC\models.py:357
+msgid "player"
+msgstr "jugador"
+
+#: .\GC\models.py:314
+msgid "players"
+msgstr "jugadores"
+
+#: .\GC\models.py:333
+msgid "diagnostic"
+msgstr "diagnóstico"
+
+#: .\GC\models.py:334
+msgid "comments"
+msgstr "comentarios"
+
+#: .\GC\models.py:335
+msgid "estimated leave"
+msgstr "estimación de la baja"
+
+#: .\GC\models.py:338
+msgid "player medical leave"
+msgstr "baja médica del jugador"
+
+#: .\GC\models.py:339
+msgid "player medical leaves"
+msgstr "bajas médicas del jugador"
+
+#: .\GC\models.py:363
+msgid "player team"
+msgstr "jugador equipo"
+
+#: .\GC\models.py:364
+msgid "player teams"
+msgstr "equipos jugador"
+
+#: .\GC\models.py:385
+msgid "position"
+msgstr "posición"
+
+#: .\GC\models.py:386
+msgid "positions"
+msgstr "posiciones"
+
+#: .\GC\models.py:401
+msgid "seconds"
+msgstr "segundos"
+
+#: .\GC\models.py:402
+msgid "points"
+msgstr "puntos"
+
+#: .\GC\models.py:403
+msgid "2 points goals made"
+msgstr "tiros de 2 anotados"
+
+#: .\GC\models.py:404
+msgid "2 points goals attempted"
+msgstr "tiros de 2 intentados"
+
+#: .\GC\models.py:405
+msgid "3 points goals made"
+msgstr "triples anotados"
+
+#: .\GC\models.py:406
+msgid "3 points goals attempted"
+msgstr "triples intentados"
+
+#: .\GC\models.py:407
+msgid "free throws made"
+msgstr "tiros libres anotados"
+
+#: .\GC\models.py:408
+msgid "free throws attempted"
+msgstr "tiros libres intentados"
+
+#: .\GC\models.py:409
+msgid "offensive rebounds"
+msgstr "rebotes ofensivos"
+
+#: .\GC\models.py:410
+msgid "defensive rebounds"
+msgstr "rebotes defensivos"
+
+#: .\GC\models.py:411
+msgid "assists"
+msgstr "asistencias"
+
+#: .\GC\models.py:412
+msgid "turnovers"
+msgstr "balones recuperados"
+
+#: .\GC\models.py:413
+msgid "steals"
+msgstr "balones perdidos"
+
+#: .\GC\models.py:414
+msgid "block pro"
+msgstr "tapones favor"
+
+#: .\GC\models.py:415
+msgid "block against"
+msgstr "tapones contra"
+
+#: .\GC\models.py:416
+msgid "mate"
+msgstr "mate"
+
+#: .\GC\models.py:417
+msgid "faults made"
+msgstr "faltas cometidas"
+
+#: .\GC\models.py:418
+msgid "faults received"
+msgstr "faltas recibidas"
+
+#: .\GC\models.py:419
+msgid "feb val"
+msgstr "feb val"
+
+#: .\GC\models.py:420
+msgid "bm val"
+msgstr "bm val"
+
+#~ msgid "end_date"
+#~ msgstr "fecha fin"

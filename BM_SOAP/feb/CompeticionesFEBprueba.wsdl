@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://servicios.feb.es/serviciosWeb" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://servicios.feb.es/serviciosWeb" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicio Web de las Competiciones FEB</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://servicios.feb.es/serviciosWeb">
+      <s:element name="TemporadasDisponibles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TemporadasDisponiblesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TemporadasDisponiblesResult" type="tns:ArrayOfTemporadaItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTemporadaItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TemporadaItem" nillable="true" type="tns:TemporadaItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TemporadaItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TemporadaID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TemporadaNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreCategoria" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CategoriasDisponiblesXTemporada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idTemporada" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CategoriasDisponiblesXTemporadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CategoriasDisponiblesXTemporadaResult" type="tns:ArrayOfCategoriaItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategoriaItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CategoriaItem" nillable="true" type="tns:CategoriaItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CategoriaItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CategoriaID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CategoriaNombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TemporadasDisponiblesSoapIn">
+    <wsdl:part name="parameters" element="tns:TemporadasDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesSoapOut">
+    <wsdl:part name="parameters" element="tns:TemporadasDisponiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaSoapIn">
+    <wsdl:part name="parameters" element="tns:CategoriasDisponiblesXTemporada" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaSoapOut">
+    <wsdl:part name="parameters" element="tns:CategoriasDisponiblesXTemporadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTemporadaItem" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaHttpGetIn">
+    <wsdl:part name="idTemporada" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCategoriaItem" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTemporadaItem" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaHttpPostIn">
+    <wsdl:part name="idTemporada" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCategoriaItem" />
+  </wsdl:message>
+  <wsdl:portType name="ServiciosFEBSoap">
+    <wsdl:operation name="TemporadasDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las temporadas disponibles</wsdl:documentation>
+      <wsdl:input message="tns:TemporadasDisponiblesSoapIn" />
+      <wsdl:output message="tns:TemporadasDisponiblesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las categorias disponibles para la temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:CategoriasDisponiblesXTemporadaSoapIn" />
+      <wsdl:output message="tns:CategoriasDisponiblesXTemporadaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiciosFEBHttpGet">
+    <wsdl:operation name="TemporadasDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las temporadas disponibles</wsdl:documentation>
+      <wsdl:input message="tns:TemporadasDisponiblesHttpGetIn" />
+      <wsdl:output message="tns:TemporadasDisponiblesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las categorias disponibles para la temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:CategoriasDisponiblesXTemporadaHttpGetIn" />
+      <wsdl:output message="tns:CategoriasDisponiblesXTemporadaHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiciosFEBHttpPost">
+    <wsdl:operation name="TemporadasDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las temporadas disponibles</wsdl:documentation>
+      <wsdl:input message="tns:TemporadasDisponiblesHttpPostIn" />
+      <wsdl:output message="tns:TemporadasDisponiblesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las categorias disponibles para la temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:CategoriasDisponiblesXTemporadaHttpPostIn" />
+      <wsdl:output message="tns:CategoriasDisponiblesXTemporadaHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiciosFEBSoap" type="tns:ServiciosFEBSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TemporadasDisponibles">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/TemporadasDisponibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/CategoriasDisponiblesXTemporada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiciosFEBSoap12" type="tns:ServiciosFEBSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TemporadasDisponibles">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/TemporadasDisponibles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/CategoriasDisponiblesXTemporada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiciosFEBHttpGet" type="tns:ServiciosFEBHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TemporadasDisponibles">
+      <http:operation location="/TemporadasDisponibles" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <http:operation location="/CategoriasDisponiblesXTemporada" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+    <wsdl:binding name="ServiciosFEBHttpPost" type="tns:ServiciosFEBHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TemporadasDisponibles">
+      <http:operation location="/TemporadasDisponibles" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <http:operation location="/CategoriasDisponiblesXTemporada" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+  <wsdl:service name="ServiciosFEB">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicio Web de las Competiciones FEB</wsdl:documentation>
+    <wsdl:port name="ServiciosFEBSoap" binding="tns:ServiciosFEBSoap">
+      <soap:address location="http://servicios.feb.es/serviciosweb/CompeticionesFEB.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiciosFEBSoap12" binding="tns:ServiciosFEBSoap12">
+      <soap12:address location="http://servicios.feb.es/serviciosweb/CompeticionesFEB.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiciosFEBHttpGet" binding="tns:ServiciosFEBHttpGet">
+      <http:address location="http://servicios.feb.es/serviciosweb/CompeticionesFEB.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiciosFEBHttpPost" binding="tns:ServiciosFEBHttpPost">
+      <http:address location="http://servicios.feb.es/serviciosweb/CompeticionesFEB.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

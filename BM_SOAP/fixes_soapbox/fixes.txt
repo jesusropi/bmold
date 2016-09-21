@@ -1,0 +1,5 @@
+Fixes soapbox:
+
+XSD template:
+- Fix attribute maxOccurs generation to string format. 'x' (x number) or 'unbounded'.
+- Fix attribute tagname generation to Complex Types (Defined in Elements).

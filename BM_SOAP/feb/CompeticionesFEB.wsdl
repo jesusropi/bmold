@@ -1,0 +1,1663 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://servicios.feb.es/serviciosWeb" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://servicios.feb.es/serviciosWeb" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicio Web de las Competiciones FEB</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://servicios.feb.es/serviciosWeb">
+      <s:element name="TemporadasDisponibles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TemporadasDisponiblesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TemporadasDisponiblesResult" type="tns:ArrayOfTemporadaItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTemporadaItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TemporadaItem" nillable="true" type="tns:TemporadaItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TemporadaItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TemporadaID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TemporadaNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreCategoria" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CategoriasDisponiblesXTemporada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idTemporada" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CategoriasDisponiblesXTemporadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CategoriasDisponiblesXTemporadaResult" type="tns:ArrayOfCategoriaItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategoriaItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CategoriaItem" nillable="true" type="tns:CategoriaItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CategoriaItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CategoriaID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CategoriaNombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TemporadasDisponiblesXCategoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codCategoria" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TemporadasDisponiblesXCategoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TemporadasDisponiblesXCategoriaResult" type="tns:ArrayOfTemporadaItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EquiposInscritosXCategoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codCategoria" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EquiposInscritosXCategoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EquiposInscritosXCategoriaResult" type="tns:ArrayOfEquipoItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEquipoItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EquipoItem" nillable="true" type="tns:EquipoItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EquipoItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdInscripcion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEquipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AliasEquipo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CategoriaXEquipoInscrito">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idInscripcion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CategoriaXEquipoInscritoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CategoriaXEquipoInscritoResult" type="tns:CategoriaItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Fases">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codCategoria" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTemporada" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FasesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FasesResult" type="tns:ArrayOfFaseItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFaseItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FaseItem" nillable="true" type="tns:FaseItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FaseItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FaseID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FaseNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FaseAlias" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Grupos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idFase" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GruposResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GruposResult" type="tns:ArrayOfGrupoItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGrupoItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GrupoItem" nillable="true" type="tns:GrupoItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GrupoItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="GrupoID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrupoNombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Jornadas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idGrupo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JornadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JornadasResult" type="tns:ArrayOfJornadaItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfJornadaItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="JornadaItem" nillable="true" type="tns:JornadaItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="JornadaItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdJornada" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumJornada" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaJornada" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Partidos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idJornada" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PartidosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartidosResult" type="tns:ArrayOfPartidoItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPartidoItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PartidoItem" nillable="true" type="tns:PartidoItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PartidoItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdPartido" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipoLocal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipoVisitante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AliasEquipoLocal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AliasEquipoVisitante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hora" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultadoLocal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultadoVisitante" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Partido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPartido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PartidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartidoResult" type="tns:InfoPartidoItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InfoPartidoItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdInscripLocal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdInscripVisitante" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEquipoLocal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEquipoVisitante" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultadoLocal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultadoVisitante" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParcialesLocal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParcialesVisitante" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimerParcialLocal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SegundoParcialLocal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TercerParcialLocal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuartoParcialLocal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimerParcialVisitante" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SegundoParcialVisitante" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TercerParcialVisitante" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuartoParcialVisitante" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProrrogasLocal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProrrogasVisitante" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroProrrogas" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hora" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Campo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provincia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArbitroPrincipal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArbitroAuxiliar" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadisticaLocal" type="tns:ArrayOfEstadisticaPartidoJugadorItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadisticaVisitante" type="tns:ArrayOfEstadisticaPartidoJugadorItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEstadisticaPartidoJugadorItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EstadisticaPartidoJugadorItem" nillable="true" type="tns:EstadisticaPartidoJugadorItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadisticaPartidoJugadorItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdJugador" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SegundosJugados" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="TiempoJugado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Puntos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IntentosDos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConvertidosDos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IntentosTres" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConvertidosTres" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IntentosUno" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConvertidosUno" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebotesOf" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebotesDef" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Asistencias" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BalonesRec" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BalonesPer" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaponesFav" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaponesCon" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mates" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FaltasCom" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FaltasRec" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Valoracion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CincoInicial" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroDorsal" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ClasificacionXJornada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idJornada" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClasificacionXJornadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClasificacionXJornadaResult" type="tns:ArrayOfEquipoClasificacionItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEquipoClasificacionItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EquipoClasificacionItem" nillable="true" type="tns:EquipoClasificacionItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EquipoClasificacionItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdInscripcion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Posicion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEquipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AliasEquipo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Jugados" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ganados" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Perdidos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PtosFavor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PtosContra" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Puntos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Racha" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sancion" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EstadisticasAcumuladasXEquipo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idInscripcion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstadisticasAcumuladasXEquipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EstadisticasAcumuladasXEquipoResult" type="tns:EstadisticaEquipo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EstadisticaEquipo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Jugadores" type="tns:ArrayOfEstadisticaJugadorItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="FasesParticipante" type="tns:ArrayOfFaseItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEquipo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEstadisticaJugadorItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EstadisticaJugadorItem" nillable="true" type="tns:EstadisticaJugadorItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadisticaJugadorItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Temporada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreFase" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SegundosJugados" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="TiempoJugado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Puntos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IntentosDos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConvertidosDos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IntentosTres" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConvertidosTres" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IntentosUno" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConvertidosUno" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebotesOf" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebotesDef" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Asistencias" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BalonesRec" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BalonesPer" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaponesFav" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaponesCon" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mates" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FaltasCom" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FaltasRec" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Valoracion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdJugador" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumPartidos" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEquipo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EstadisticasAcumuladasXJugador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idInscripcion" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idJugador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstadisticasAcumuladasXJugadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EstadisticasAcumuladasXJugadorResult" type="tns:Jugador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Jugador">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaNac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalidadNac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProvinciaNac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nacionalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEquipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Trayectoria" type="tns:ArrayOfTrayectoriaItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadisticaActual" type="tns:ArrayOfEstadisticaJugadorItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadisticasPasadas" type="tns:ArrayOfEstadisticaJugadorItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="FasesParticipante" type="tns:ArrayOfFaseItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTrayectoriaItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TrayectoriaItem" nillable="true" type="tns:TrayectoriaItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TrayectoriaItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEquipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Licencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreTemporada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Categoria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreClub" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaBaja" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TiposRanking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TiposRankingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TiposRankingResult" type="tns:ArrayOfTipoRankingItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoRankingItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoRankingItem" nillable="true" type="tns:TipoRankingItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoRankingItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Ranking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idGrupo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idJornada" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTipoRanking" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RankingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RankingResult" type="tns:Rankings" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Rankings">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TopsJornada" type="tns:ArrayOfTopsJornadaRankingItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="AcumuladoFase" type="tns:ArrayOfAcumuladoRankingItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="TopesFase" type="tns:ArrayOfTopesRankingItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTopsJornadaRankingItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TopsJornadaRankingItem" nillable="true" type="tns:TopsJornadaRankingItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TopsJornadaRankingItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Equipo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAcumuladoRankingItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AcumuladoRankingItem" nillable="true" type="tns:AcumuladoRankingItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AcumuladoRankingItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Equipo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumPartidos" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Media" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTopesRankingItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TopesRankingItem" nillable="true" type="tns:TopesRankingItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TopesRankingItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Equipo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jornada" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ArrayOfTemporadaItem" nillable="true" type="tns:ArrayOfTemporadaItem" />
+      <s:element name="ArrayOfCategoriaItem" nillable="true" type="tns:ArrayOfCategoriaItem" />
+      <s:element name="ArrayOfEquipoItem" nillable="true" type="tns:ArrayOfEquipoItem" />
+      <s:element name="CategoriaItem" nillable="true" type="tns:CategoriaItem" />
+      <s:element name="ArrayOfFaseItem" nillable="true" type="tns:ArrayOfFaseItem" />
+      <s:element name="ArrayOfGrupoItem" nillable="true" type="tns:ArrayOfGrupoItem" />
+      <s:element name="ArrayOfJornadaItem" nillable="true" type="tns:ArrayOfJornadaItem" />
+      <s:element name="ArrayOfPartidoItem" nillable="true" type="tns:ArrayOfPartidoItem" />
+      <s:element name="InfoPartidoItem" nillable="true" type="tns:InfoPartidoItem" />
+      <s:element name="ArrayOfEquipoClasificacionItem" nillable="true" type="tns:ArrayOfEquipoClasificacionItem" />
+      <s:element name="EstadisticaEquipo" nillable="true" type="tns:EstadisticaEquipo" />
+      <s:element name="Jugador" nillable="true" type="tns:Jugador" />
+      <s:element name="ArrayOfTipoRankingItem" nillable="true" type="tns:ArrayOfTipoRankingItem" />
+      <s:element name="Rankings" nillable="true" type="tns:Rankings" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TemporadasDisponiblesSoapIn">
+    <wsdl:part name="parameters" element="tns:TemporadasDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesSoapOut">
+    <wsdl:part name="parameters" element="tns:TemporadasDisponiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaSoapIn">
+    <wsdl:part name="parameters" element="tns:CategoriasDisponiblesXTemporada" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaSoapOut">
+    <wsdl:part name="parameters" element="tns:CategoriasDisponiblesXTemporadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesXCategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:TemporadasDisponiblesXCategoria" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesXCategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:TemporadasDisponiblesXCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EquiposInscritosXCategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:EquiposInscritosXCategoria" />
+  </wsdl:message>
+  <wsdl:message name="EquiposInscritosXCategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:EquiposInscritosXCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CategoriaXEquipoInscritoSoapIn">
+    <wsdl:part name="parameters" element="tns:CategoriaXEquipoInscrito" />
+  </wsdl:message>
+  <wsdl:message name="CategoriaXEquipoInscritoSoapOut">
+    <wsdl:part name="parameters" element="tns:CategoriaXEquipoInscritoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FasesSoapIn">
+    <wsdl:part name="parameters" element="tns:Fases" />
+  </wsdl:message>
+  <wsdl:message name="FasesSoapOut">
+    <wsdl:part name="parameters" element="tns:FasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GruposSoapIn">
+    <wsdl:part name="parameters" element="tns:Grupos" />
+  </wsdl:message>
+  <wsdl:message name="GruposSoapOut">
+    <wsdl:part name="parameters" element="tns:GruposResponse" />
+  </wsdl:message>
+  <wsdl:message name="JornadasSoapIn">
+    <wsdl:part name="parameters" element="tns:Jornadas" />
+  </wsdl:message>
+  <wsdl:message name="JornadasSoapOut">
+    <wsdl:part name="parameters" element="tns:JornadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartidosSoapIn">
+    <wsdl:part name="parameters" element="tns:Partidos" />
+  </wsdl:message>
+  <wsdl:message name="PartidosSoapOut">
+    <wsdl:part name="parameters" element="tns:PartidosResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartidoSoapIn">
+    <wsdl:part name="parameters" element="tns:Partido" />
+  </wsdl:message>
+  <wsdl:message name="PartidoSoapOut">
+    <wsdl:part name="parameters" element="tns:PartidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClasificacionXJornadaSoapIn">
+    <wsdl:part name="parameters" element="tns:ClasificacionXJornada" />
+  </wsdl:message>
+  <wsdl:message name="ClasificacionXJornadaSoapOut">
+    <wsdl:part name="parameters" element="tns:ClasificacionXJornadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXEquipoSoapIn">
+    <wsdl:part name="parameters" element="tns:EstadisticasAcumuladasXEquipo" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXEquipoSoapOut">
+    <wsdl:part name="parameters" element="tns:EstadisticasAcumuladasXEquipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXJugadorSoapIn">
+    <wsdl:part name="parameters" element="tns:EstadisticasAcumuladasXJugador" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXJugadorSoapOut">
+    <wsdl:part name="parameters" element="tns:EstadisticasAcumuladasXJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="TiposRankingSoapIn">
+    <wsdl:part name="parameters" element="tns:TiposRanking" />
+  </wsdl:message>
+  <wsdl:message name="TiposRankingSoapOut">
+    <wsdl:part name="parameters" element="tns:TiposRankingResponse" />
+  </wsdl:message>
+  <wsdl:message name="RankingSoapIn">
+    <wsdl:part name="parameters" element="tns:Ranking" />
+  </wsdl:message>
+  <wsdl:message name="RankingSoapOut">
+    <wsdl:part name="parameters" element="tns:RankingResponse" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTemporadaItem" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaHttpGetIn">
+    <wsdl:part name="idTemporada" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCategoriaItem" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesXCategoriaHttpGetIn">
+    <wsdl:part name="codCategoria" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesXCategoriaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTemporadaItem" />
+  </wsdl:message>
+  <wsdl:message name="EquiposInscritosXCategoriaHttpGetIn">
+    <wsdl:part name="codCategoria" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EquiposInscritosXCategoriaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEquipoItem" />
+  </wsdl:message>
+  <wsdl:message name="CategoriaXEquipoInscritoHttpGetIn">
+    <wsdl:part name="idInscripcion" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CategoriaXEquipoInscritoHttpGetOut">
+    <wsdl:part name="Body" element="tns:CategoriaItem" />
+  </wsdl:message>
+  <wsdl:message name="FasesHttpGetIn">
+    <wsdl:part name="codCategoria" type="s:string" />
+    <wsdl:part name="idTemporada" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FasesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFaseItem" />
+  </wsdl:message>
+  <wsdl:message name="GruposHttpGetIn">
+    <wsdl:part name="idFase" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GruposHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfGrupoItem" />
+  </wsdl:message>
+  <wsdl:message name="JornadasHttpGetIn">
+    <wsdl:part name="idGrupo" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="JornadasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfJornadaItem" />
+  </wsdl:message>
+  <wsdl:message name="PartidosHttpGetIn">
+    <wsdl:part name="idJornada" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PartidosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPartidoItem" />
+  </wsdl:message>
+  <wsdl:message name="PartidoHttpGetIn">
+    <wsdl:part name="idPartido" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PartidoHttpGetOut">
+    <wsdl:part name="Body" element="tns:InfoPartidoItem" />
+  </wsdl:message>
+  <wsdl:message name="ClasificacionXJornadaHttpGetIn">
+    <wsdl:part name="idJornada" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ClasificacionXJornadaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEquipoClasificacionItem" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXEquipoHttpGetIn">
+    <wsdl:part name="idInscripcion" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXEquipoHttpGetOut">
+    <wsdl:part name="Body" element="tns:EstadisticaEquipo" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXJugadorHttpGetIn">
+    <wsdl:part name="idInscripcion" type="s:string" />
+    <wsdl:part name="idJugador" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXJugadorHttpGetOut">
+    <wsdl:part name="Body" element="tns:Jugador" />
+  </wsdl:message>
+  <wsdl:message name="TiposRankingHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TiposRankingHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoRankingItem" />
+  </wsdl:message>
+  <wsdl:message name="RankingHttpGetIn">
+    <wsdl:part name="idGrupo" type="s:string" />
+    <wsdl:part name="idJornada" type="s:string" />
+    <wsdl:part name="idTipoRanking" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RankingHttpGetOut">
+    <wsdl:part name="Body" element="tns:Rankings" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTemporadaItem" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaHttpPostIn">
+    <wsdl:part name="idTemporada" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasDisponiblesXTemporadaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCategoriaItem" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesXCategoriaHttpPostIn">
+    <wsdl:part name="codCategoria" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TemporadasDisponiblesXCategoriaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTemporadaItem" />
+  </wsdl:message>
+  <wsdl:message name="EquiposInscritosXCategoriaHttpPostIn">
+    <wsdl:part name="codCategoria" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EquiposInscritosXCategoriaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEquipoItem" />
+  </wsdl:message>
+  <wsdl:message name="CategoriaXEquipoInscritoHttpPostIn">
+    <wsdl:part name="idInscripcion" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CategoriaXEquipoInscritoHttpPostOut">
+    <wsdl:part name="Body" element="tns:CategoriaItem" />
+  </wsdl:message>
+  <wsdl:message name="FasesHttpPostIn">
+    <wsdl:part name="codCategoria" type="s:string" />
+    <wsdl:part name="idTemporada" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FasesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFaseItem" />
+  </wsdl:message>
+  <wsdl:message name="GruposHttpPostIn">
+    <wsdl:part name="idFase" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GruposHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfGrupoItem" />
+  </wsdl:message>
+  <wsdl:message name="JornadasHttpPostIn">
+    <wsdl:part name="idGrupo" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="JornadasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfJornadaItem" />
+  </wsdl:message>
+  <wsdl:message name="PartidosHttpPostIn">
+    <wsdl:part name="idJornada" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PartidosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPartidoItem" />
+  </wsdl:message>
+  <wsdl:message name="PartidoHttpPostIn">
+    <wsdl:part name="idPartido" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PartidoHttpPostOut">
+    <wsdl:part name="Body" element="tns:InfoPartidoItem" />
+  </wsdl:message>
+  <wsdl:message name="ClasificacionXJornadaHttpPostIn">
+    <wsdl:part name="idJornada" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ClasificacionXJornadaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEquipoClasificacionItem" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXEquipoHttpPostIn">
+    <wsdl:part name="idInscripcion" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXEquipoHttpPostOut">
+    <wsdl:part name="Body" element="tns:EstadisticaEquipo" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXJugadorHttpPostIn">
+    <wsdl:part name="idInscripcion" type="s:string" />
+    <wsdl:part name="idJugador" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EstadisticasAcumuladasXJugadorHttpPostOut">
+    <wsdl:part name="Body" element="tns:Jugador" />
+  </wsdl:message>
+  <wsdl:message name="TiposRankingHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TiposRankingHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoRankingItem" />
+  </wsdl:message>
+  <wsdl:message name="RankingHttpPostIn">
+    <wsdl:part name="idGrupo" type="s:string" />
+    <wsdl:part name="idJornada" type="s:string" />
+    <wsdl:part name="idTipoRanking" type="s:string" />
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RankingHttpPostOut">
+    <wsdl:part name="Body" element="tns:Rankings" />
+  </wsdl:message>
+  <wsdl:portType name="ServiciosFEBSoap">
+    <wsdl:operation name="TemporadasDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las temporadas disponibles</wsdl:documentation>
+      <wsdl:input message="tns:TemporadasDisponiblesSoapIn" />
+      <wsdl:output message="tns:TemporadasDisponiblesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las categorias disponibles para la temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:CategoriasDisponiblesXTemporadaSoapIn" />
+      <wsdl:output message="tns:CategoriasDisponiblesXTemporadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TemporadasDisponiblesXCategoria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las temporadas disponibles para la categoria indicada</wsdl:documentation>
+      <wsdl:input message="tns:TemporadasDisponiblesXCategoriaSoapIn" />
+      <wsdl:output message="tns:TemporadasDisponiblesXCategoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EquiposInscritosXCategoria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los equipos inscritos en una categoria en la temporada actual</wsdl:documentation>
+      <wsdl:input message="tns:EquiposInscritosXCategoriaSoapIn" />
+      <wsdl:output message="tns:EquiposInscritosXCategoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaXEquipoInscrito">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la categoria a la que pertenece un equipo</wsdl:documentation>
+      <wsdl:input message="tns:CategoriaXEquipoInscritoSoapIn" />
+      <wsdl:output message="tns:CategoriaXEquipoInscritoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fases">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las fases disponibles para la categoría y temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:FasesSoapIn" />
+      <wsdl:output message="tns:FasesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Grupos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas los grupos disponibles para la fase, categoría y temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:GruposSoapIn" />
+      <wsdl:output message="tns:GruposSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Jornadas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las jornadas del grupo indicado</wsdl:documentation>
+      <wsdl:input message="tns:JornadasSoapIn" />
+      <wsdl:output message="tns:JornadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Partidos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los partidos para la jornada indicada</wsdl:documentation>
+      <wsdl:input message="tns:PartidosSoapIn" />
+      <wsdl:output message="tns:PartidosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Partido">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve toda la información del partido indicado</wsdl:documentation>
+      <wsdl:input message="tns:PartidoSoapIn" />
+      <wsdl:output message="tns:PartidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClasificacionXJornada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la clasificacion de la jornada indicada</wsdl:documentation>
+      <wsdl:input message="tns:ClasificacionXJornadaSoapIn" />
+      <wsdl:output message="tns:ClasificacionXJornadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXEquipo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las estadisticas acumuladas de los jugadores del equipo indicado</wsdl:documentation>
+      <wsdl:input message="tns:EstadisticasAcumuladasXEquipoSoapIn" />
+      <wsdl:output message="tns:EstadisticasAcumuladasXEquipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXJugador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la trayectoria personal del jugador del equipo indicado</wsdl:documentation>
+      <wsdl:input message="tns:EstadisticasAcumuladasXJugadorSoapIn" />
+      <wsdl:output message="tns:EstadisticasAcumuladasXJugadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TiposRanking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los tipos de rankings</wsdl:documentation>
+      <wsdl:input message="tns:TiposRankingSoapIn" />
+      <wsdl:output message="tns:TiposRankingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ranking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el ranking indicando el Grupo, Jornada y Tipo de Ranking</wsdl:documentation>
+      <wsdl:input message="tns:RankingSoapIn" />
+      <wsdl:output message="tns:RankingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiciosFEBHttpGet">
+    <wsdl:operation name="TemporadasDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las temporadas disponibles</wsdl:documentation>
+      <wsdl:input message="tns:TemporadasDisponiblesHttpGetIn" />
+      <wsdl:output message="tns:TemporadasDisponiblesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las categorias disponibles para la temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:CategoriasDisponiblesXTemporadaHttpGetIn" />
+      <wsdl:output message="tns:CategoriasDisponiblesXTemporadaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TemporadasDisponiblesXCategoria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las temporadas disponibles para la categoria indicada</wsdl:documentation>
+      <wsdl:input message="tns:TemporadasDisponiblesXCategoriaHttpGetIn" />
+      <wsdl:output message="tns:TemporadasDisponiblesXCategoriaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EquiposInscritosXCategoria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los equipos inscritos en una categoria en la temporada actual</wsdl:documentation>
+      <wsdl:input message="tns:EquiposInscritosXCategoriaHttpGetIn" />
+      <wsdl:output message="tns:EquiposInscritosXCategoriaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaXEquipoInscrito">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la categoria a la que pertenece un equipo</wsdl:documentation>
+      <wsdl:input message="tns:CategoriaXEquipoInscritoHttpGetIn" />
+      <wsdl:output message="tns:CategoriaXEquipoInscritoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fases">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las fases disponibles para la categoría y temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:FasesHttpGetIn" />
+      <wsdl:output message="tns:FasesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Grupos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas los grupos disponibles para la fase, categoría y temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:GruposHttpGetIn" />
+      <wsdl:output message="tns:GruposHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Jornadas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las jornadas del grupo indicado</wsdl:documentation>
+      <wsdl:input message="tns:JornadasHttpGetIn" />
+      <wsdl:output message="tns:JornadasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Partidos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los partidos para la jornada indicada</wsdl:documentation>
+      <wsdl:input message="tns:PartidosHttpGetIn" />
+      <wsdl:output message="tns:PartidosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Partido">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve toda la información del partido indicado</wsdl:documentation>
+      <wsdl:input message="tns:PartidoHttpGetIn" />
+      <wsdl:output message="tns:PartidoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClasificacionXJornada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la clasificacion de la jornada indicada</wsdl:documentation>
+      <wsdl:input message="tns:ClasificacionXJornadaHttpGetIn" />
+      <wsdl:output message="tns:ClasificacionXJornadaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXEquipo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las estadisticas acumuladas de los jugadores del equipo indicado</wsdl:documentation>
+      <wsdl:input message="tns:EstadisticasAcumuladasXEquipoHttpGetIn" />
+      <wsdl:output message="tns:EstadisticasAcumuladasXEquipoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXJugador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la trayectoria personal del jugador del equipo indicado</wsdl:documentation>
+      <wsdl:input message="tns:EstadisticasAcumuladasXJugadorHttpGetIn" />
+      <wsdl:output message="tns:EstadisticasAcumuladasXJugadorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TiposRanking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los tipos de rankings</wsdl:documentation>
+      <wsdl:input message="tns:TiposRankingHttpGetIn" />
+      <wsdl:output message="tns:TiposRankingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ranking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el ranking indicando el Grupo, Jornada y Tipo de Ranking</wsdl:documentation>
+      <wsdl:input message="tns:RankingHttpGetIn" />
+      <wsdl:output message="tns:RankingHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiciosFEBHttpPost">
+    <wsdl:operation name="TemporadasDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las temporadas disponibles</wsdl:documentation>
+      <wsdl:input message="tns:TemporadasDisponiblesHttpPostIn" />
+      <wsdl:output message="tns:TemporadasDisponiblesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las categorias disponibles para la temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:CategoriasDisponiblesXTemporadaHttpPostIn" />
+      <wsdl:output message="tns:CategoriasDisponiblesXTemporadaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TemporadasDisponiblesXCategoria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las temporadas disponibles para la categoria indicada</wsdl:documentation>
+      <wsdl:input message="tns:TemporadasDisponiblesXCategoriaHttpPostIn" />
+      <wsdl:output message="tns:TemporadasDisponiblesXCategoriaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EquiposInscritosXCategoria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los equipos inscritos en una categoria en la temporada actual</wsdl:documentation>
+      <wsdl:input message="tns:EquiposInscritosXCategoriaHttpPostIn" />
+      <wsdl:output message="tns:EquiposInscritosXCategoriaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaXEquipoInscrito">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la categoria a la que pertenece un equipo</wsdl:documentation>
+      <wsdl:input message="tns:CategoriaXEquipoInscritoHttpPostIn" />
+      <wsdl:output message="tns:CategoriaXEquipoInscritoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fases">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las fases disponibles para la categoría y temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:FasesHttpPostIn" />
+      <wsdl:output message="tns:FasesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Grupos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas los grupos disponibles para la fase, categoría y temporada indicada</wsdl:documentation>
+      <wsdl:input message="tns:GruposHttpPostIn" />
+      <wsdl:output message="tns:GruposHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Jornadas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las jornadas del grupo indicado</wsdl:documentation>
+      <wsdl:input message="tns:JornadasHttpPostIn" />
+      <wsdl:output message="tns:JornadasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Partidos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los partidos para la jornada indicada</wsdl:documentation>
+      <wsdl:input message="tns:PartidosHttpPostIn" />
+      <wsdl:output message="tns:PartidosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Partido">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve toda la información del partido indicado</wsdl:documentation>
+      <wsdl:input message="tns:PartidoHttpPostIn" />
+      <wsdl:output message="tns:PartidoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClasificacionXJornada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la clasificacion de la jornada indicada</wsdl:documentation>
+      <wsdl:input message="tns:ClasificacionXJornadaHttpPostIn" />
+      <wsdl:output message="tns:ClasificacionXJornadaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXEquipo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las estadisticas acumuladas de los jugadores del equipo indicado</wsdl:documentation>
+      <wsdl:input message="tns:EstadisticasAcumuladasXEquipoHttpPostIn" />
+      <wsdl:output message="tns:EstadisticasAcumuladasXEquipoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXJugador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la trayectoria personal del jugador del equipo indicado</wsdl:documentation>
+      <wsdl:input message="tns:EstadisticasAcumuladasXJugadorHttpPostIn" />
+      <wsdl:output message="tns:EstadisticasAcumuladasXJugadorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TiposRanking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los tipos de rankings</wsdl:documentation>
+      <wsdl:input message="tns:TiposRankingHttpPostIn" />
+      <wsdl:output message="tns:TiposRankingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ranking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el ranking indicando el Grupo, Jornada y Tipo de Ranking</wsdl:documentation>
+      <wsdl:input message="tns:RankingHttpPostIn" />
+      <wsdl:output message="tns:RankingHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiciosFEBSoap" type="tns:ServiciosFEBSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TemporadasDisponibles">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/TemporadasDisponibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/CategoriasDisponiblesXTemporada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TemporadasDisponiblesXCategoria">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/TemporadasDisponiblesXCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EquiposInscritosXCategoria">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/EquiposInscritosXCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaXEquipoInscrito">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/CategoriaXEquipoInscrito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fases">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/Fases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Grupos">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/Grupos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Jornadas">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/Jornadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Partidos">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/Partidos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Partido">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/Partido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClasificacionXJornada">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/ClasificacionXJornada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXEquipo">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/EstadisticasAcumuladasXEquipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXJugador">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/EstadisticasAcumuladasXJugador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposRanking">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/TiposRanking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ranking">
+      <soap:operation soapAction="http://servicios.feb.es/serviciosWeb/Ranking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiciosFEBSoap12" type="tns:ServiciosFEBSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TemporadasDisponibles">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/TemporadasDisponibles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/CategoriasDisponiblesXTemporada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TemporadasDisponiblesXCategoria">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/TemporadasDisponiblesXCategoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EquiposInscritosXCategoria">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/EquiposInscritosXCategoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaXEquipoInscrito">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/CategoriaXEquipoInscrito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fases">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/Fases" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Grupos">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/Grupos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Jornadas">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/Jornadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Partidos">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/Partidos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Partido">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/Partido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClasificacionXJornada">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/ClasificacionXJornada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXEquipo">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/EstadisticasAcumuladasXEquipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXJugador">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/EstadisticasAcumuladasXJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposRanking">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/TiposRanking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ranking">
+      <soap12:operation soapAction="http://servicios.feb.es/serviciosWeb/Ranking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiciosFEBHttpGet" type="tns:ServiciosFEBHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TemporadasDisponibles">
+      <http:operation location="/TemporadasDisponibles" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <http:operation location="/CategoriasDisponiblesXTemporada" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TemporadasDisponiblesXCategoria">
+      <http:operation location="/TemporadasDisponiblesXCategoria" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EquiposInscritosXCategoria">
+      <http:operation location="/EquiposInscritosXCategoria" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaXEquipoInscrito">
+      <http:operation location="/CategoriaXEquipoInscrito" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fases">
+      <http:operation location="/Fases" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Grupos">
+      <http:operation location="/Grupos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Jornadas">
+      <http:operation location="/Jornadas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Partidos">
+      <http:operation location="/Partidos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Partido">
+      <http:operation location="/Partido" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClasificacionXJornada">
+      <http:operation location="/ClasificacionXJornada" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXEquipo">
+      <http:operation location="/EstadisticasAcumuladasXEquipo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXJugador">
+      <http:operation location="/EstadisticasAcumuladasXJugador" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposRanking">
+      <http:operation location="/TiposRanking" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ranking">
+      <http:operation location="/Ranking" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiciosFEBHttpPost" type="tns:ServiciosFEBHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TemporadasDisponibles">
+      <http:operation location="/TemporadasDisponibles" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasDisponiblesXTemporada">
+      <http:operation location="/CategoriasDisponiblesXTemporada" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TemporadasDisponiblesXCategoria">
+      <http:operation location="/TemporadasDisponiblesXCategoria" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EquiposInscritosXCategoria">
+      <http:operation location="/EquiposInscritosXCategoria" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaXEquipoInscrito">
+      <http:operation location="/CategoriaXEquipoInscrito" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fases">
+      <http:operation location="/Fases" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Grupos">
+      <http:operation location="/Grupos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Jornadas">
+      <http:operation location="/Jornadas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Partidos">
+      <http:operation location="/Partidos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Partido">
+      <http:operation location="/Partido" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClasificacionXJornada">
+      <http:operation location="/ClasificacionXJornada" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXEquipo">
+      <http:operation location="/EstadisticasAcumuladasXEquipo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadisticasAcumuladasXJugador">
+      <http:operation location="/EstadisticasAcumuladasXJugador" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TiposRanking">
+      <http:operation location="/TiposRanking" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ranking">
+      <http:operation location="/Ranking" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiciosFEB">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicio Web de las Competiciones FEB</wsdl:documentation>
+    <wsdl:port name="ServiciosFEBSoap" binding="tns:ServiciosFEBSoap">
+      <soap:address location="http://servicios.feb.es/serviciosweb/CompeticionesFEB.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiciosFEBSoap12" binding="tns:ServiciosFEBSoap12">
+      <soap12:address location="http://servicios.feb.es/serviciosweb/CompeticionesFEB.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiciosFEBHttpGet" binding="tns:ServiciosFEBHttpGet">
+      <http:address location="http://servicios.feb.es/serviciosweb/CompeticionesFEB.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiciosFEBHttpPost" binding="tns:ServiciosFEBHttpPost">
+      <http:address location="http://servicios.feb.es/serviciosweb/CompeticionesFEB.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
